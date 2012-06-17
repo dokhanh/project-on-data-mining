@@ -1,8 +1,7 @@
 #set default folder
 #setwd('/Users/tuanhungvu/Study/M2/Period4/SI Decisionnel/Project/codes');
 #Read data from file
-data = read.csv('25Promos2009.csv', head = TRUE, sep = ';', stringsAsFactors=FALSE, strip.white=TRUE);
-
+data = read.csv('/Users/tuanhungvu/Study/M2/Period4/SI Decisionnel/Project/codes/25Promos2009_utf8.csv', head = TRUE, sep = ';', stringsAsFactors=FALSE, strip.white=TRUE, encoding = "utf8");
 
 #convert from numeric to factor
 data$civilite = factor(data$civilite);
@@ -54,6 +53,16 @@ hist(data$SalBrut[data$SalBrut < 400000], nclass = 100)
 
 # convert from numeric to factor
 #..............
+nValSal = 4;
+ValSal = quantile(data$SalBrut, probs = c(0.25, 0.50, 0.75), na.rm = TRUE);
+data$SalBrut2 = rep(nValSal, length(data$SalBrut));
+data$SalBrut2[data$SalBrut < ValSal[1]] = 1;
+for (i in 2:nValSal)
+{
+	data$SalBrut2[data$SalBrut < ValSal[i] & data$SalBrut > ValSal[i-1]] = i;
+}
+data$SalBrut2[is.na(data$SalBrut)] = NA;
+data$SalBrut2 = factor(data$SalBrut2);
 
 # create new data frame containing interesting variables
 data1 = data.frame(data$civilite, data$ActivitÈ.principale.employeur, data$DomAct);
@@ -77,3 +86,38 @@ print(result_MCA2, sep = ";");
 # valeurs propres
 result_MCA2$eig;
 result_MCA2$var;
+
+#list3
+#list4
+# interesting variables: TypEntrep, CreaEnt, TailEntrp, Rep, ActivitePrincipale, SalBrut
+data$TypEntrep = factor(data$TypEntrep);
+data$CreaEnt = factor(data$CreaEnt);
+data$TailEntrp = factor(data$TailEntrp);
+data$Rep = factor(data$Rep);
+data$Activit».principale.employeur = factor(data$Activit».principale.employeur);
+data$SalBrut2 = factor(data$SalBrut2)
+
+data3 = data.frame(data$TypEntrep, data$CreaEnt, data$TailEntrp, data$Rep, data$Activit».principale.employeur, data$SalBrut2);
+#change to shorter name
+colnames(data3)[1] = "Ty";
+colnames(data3)[2] = "Cr";
+colnames(data3)[3] = "Ta";
+colnames(data3)[4] = "Re";
+colnames(data3)[5] = "Ac";
+colnames(data3)[6] = "Sa";
+
+#in this case, those N/A values are "really missing values", which should be preprocessed before we apply MCA
+tab.disj3 <- imputeMCA(data3, ncp = 3);
+result_MCA3 <- MCA(data3, graph=FALSE, tab.disj = tab.disj3);
+plot(result_MCA3, choix="ind", invisible = "ind", habillage = "quali", xlim=c(-2,2), ylim=c(-0.5,0.75));
+dimdesc(result_MCA3);
+print(result_MCA3, sep = ";");
+# valeurs propres
+result_MCA3$eig;
+result_MCA3$var;
+
+#lien quan giua viec "tao lap cong ty" va "loai cong ty"
+# thuong cac cong ty nhu hat nhan, vu tru thi khong co ai tao cong ty ca !!!!
+# thuong chi tao cac cong ty conseil, service ...
+
+#thuong tao cong ty co quy mo nho, type la liberale
