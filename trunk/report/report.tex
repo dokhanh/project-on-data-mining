@@ -1,0 +1,83 @@
+\documentclass[a4paper,twoside,12pt]{article}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english,french]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{algorithm} %to write pseudo-code
+\usepackage{algpseudocode} %to write pseudo-code
+
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+
+\usepackage[top=2.5cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{icomma} % Permet l'utilisation de virgule comme sÈparateur dÈcimal
+\usepackage{url} % Package pour ne pas avoir des problËmes avec des URL's
+% Utiliser \url{}
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[dvips]{graphicx}
+%\usepackage{color,psfrag}
+\usepackage{graphicx} %%For loading graphic files
+%\usepackage{subfig} %%Subfigures inside a figure
+%\usepackage{tikz} %%Generate vector graphics from within LaTeX
+%\usepackage{tikz-3dplot} %requires 3dplot.sty to be in same directory, or in your LaTeX installation
+%\usetikzlibrary{calc} %pour faire les calculs
+
+%\usepackage{epstopdf}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} %Dessine la ligne horizontale
+
+%% Please note:
+%% Images can be included using \includegraphics{filename}
+%% resp. using the dialog in the Insert menu.
+%% 
+%% The mode "LaTeX => PDF" allows the following formats:
+%%   .jpg  .png  .pdf  .mps
+%% 
+%% The modes "LaTeX => DVI", "LaTeX => PS" und "LaTeX => PS => PDF"
+%% allow the following formats:
+%%   .eps  .ps  .bmp  .pict  .pntg
+
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amstext,amscd,bezier,amsthm,amssymb}
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+
+%\newenvironment{solu}{\noindent {\bf Solution.}\small }{\hfill $\square$ \normalsize \medskip}
+
+%\renewcommand\thesection{\arabic{section}}
+%\renewcommand*\thesection{Question \arabic{section}}
+
+\def\MYTITLE{Rapport du projet: Analyse de fonctions et salaires des $25$ promotions}
+
+\title{\MYTITLE}
+\author{\textsc{Vu} Tuan Hung et \textsc{Do} Quoc Khanh}
+\date{\today}
+
+\usepackage{fancyhdr}
+
+\fancyhead[L]{\slshape Tuan Hung VU et Quoc Khanh DO}%\slshape\thepage LE,RO
+\fancyhead[R]{\slshape Rapport du projet}%{\slshape \leftmark}
+%\fancyhead[LO]{ccc}%{\slshape \rightmark}
+%\fancyfoot[LO,LE]{}%\slshape Short Course on Asymptotics
+\fancyfoot[C]{\thepage}
+%\fancyfoot[RO,RE]{}%\slshape 7/15/2002
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\abs}[1]{{\lvert #1 \rvert}}
+\newcommand{\norm}[1]{{\lVert #1 \rVert}}
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+
+\end{document}
