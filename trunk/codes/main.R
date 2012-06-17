@@ -1,7 +1,8 @@
 #set default folder
 #setwd('/Users/tuanhungvu/Study/M2/Period4/SI Decisionnel/Project/codes');
 #Read data from file
-data = read.csv('/Users/tuanhungvu/Study/M2/Period4/SI Decisionnel/Project/codes/25Promos2009_utf8.csv', head = TRUE, sep = ';', stringsAsFactors=FALSE, strip.white=TRUE, encoding = "utf8");
+data = read.csv('25Promos2009.csv', head = TRUE, sep = ';', stringsAsFactors=FALSE, strip.white=TRUE);
+
 
 #convert from numeric to factor
 data$civilite = factor(data$civilite);
@@ -72,19 +73,43 @@ library(FactoMineR);
 result_MCA <- MCA(data1);
 
 # interesting variables: diplome, admission, FR.UE.HUE, TailEntrp
+data$civilite = factor(data$civilite);
 data$diplome = factor(data$diplome);
+data$promo = factor(data$promo);
 data$admission = factor(data$admission);
 data$FR.UE.HUE = factor(data$FR.UE.HUE);
-data$TailEntrp = factor(data$TailEntrp);
+data$TypEntrep = factor(data$TypEntrep);
+data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE));
 
-data2 = data.frame(data$diplome, data$admission, data$FR.UE.HUE, data$TailEntrp);
+data_list1 = data.frame(data$diplome, data$admission, data$FR.UE.HUE, data$TypEntrep, data$promo, data$SalBrut);
 
-result_MCA2 <- MCA(data2);
-plot(result_MCA2, choix="ind", invisible = "ind", habillage = "quali");
-dimdesc(result_MCA2);
-print(result_MCA2, sep = ";");
+result_list1 <- MCA(data_list1, ncp = 5, quanti.sup = 6, quali.sup = 5, graph = TRUE);
+plot(result_list1, choix=c("ind", "quanti.sup"), invisible = "ind", habillage = "quali");
+dimdesc(result_list1);
+print(result_list1, sep = ";");
 # valeurs propres
 result_MCA2$eig;
+result_MCA2$var;
+
+# parcours des étudiants
+data$civilite = factor(data$civilite);
+data$FormComp = factor(data$FormComp);
+data$diplome = factor(data$diplome);
+data$promo = factor(data$promo);
+data$admission = factor(data$admission);
+data$FR.UE.HUE = factor(data$FR.UE.HUE);
+data$TypEntrep = factor(data$TypEntrep);
+data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE));
+
+data_list1 = data.frame(data$civilite, data$FormComp, data$diplome, data$admission, data$FR.UE.HUE, data$TypEntrep, data$promo, data$SalBrut);
+
+result_list1 <- MCA(data_list1, ncp = 5, quanti.sup = 8, quali.sup = 7, graph = TRUE);
+plot(result_list1, choix="ind", invisible = c("ind", "quali.sup"), habillage = "quali");
+dimdesc(result_list1);
+print(result_list1, sep = ";");
+# valeurs propres
+result_MCA2$eig;
+result_MCA2$var;
 result_MCA2$var;
 
 #list3
