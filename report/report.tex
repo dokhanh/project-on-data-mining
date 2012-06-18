@@ -85,7 +85,7 @@
 \section{Parcours, origines, entreprises et salaires}
 Dans cette première partie, on étudie les relations entre les parcours et les origines des élèves avec les types d'entreprises dans lesquelles ils travaillent après leur obtention de diplômes, et le niveau de salaire ils pourront recevoir. Les relations entre l'admission et les diplômes qu'ils obtiennent ainsi que la cohérence des parcours sont aussi à étudier.
 
-\subsection{Traitements préliminaires des données}
+\subsection{Traitements préliminaires des données}\label{traitPre}
 Dans cette étude de données, on ne traitera que les variables catégorielles par l'analyse de correspondances multiples. Il y a $6$ variables à analyser dans cette partie: \textsl{diplôme}, \textsl{promotion}, \textsl{admission}, \textsl{FR.UE.HUE}, \textsl{type d'entreprise}, et \textsl{salaire brute}. La variable \textsl{promotion} peut considérer comme quantitative ou qualitative. Cependant, même si elle est traitée comme une variable catégorielles, elle a beaucoup de catégories par rapport aux autres variables (ce qui pourrait diminuer son impact). Pour résoudre ce problème, on divise les promotions en $4$ intervalles équilibrés (en nombre d'éléments) en utilisant la fonction de \textsl{quantile}, et transforme donc la variable \textsl{promotion} en une variable qualitative de $4$ modalités. On effectue les mêmes démarches pour \textsl{salaire brute}.
 
 Il y a des cases vides (ou erronées) dans les données. La raison est plutôt qu'on n'a pas pu obtenir de bonnes informations et n'est pas que les interviewés voulaient répondre autrement. On souhaite donc remplacer ces valeurs nulles. Dans ce projet, l'analyse de correspondances multiples (ACM) s'effectue avec les tableaux disjonctifs complets créés par la méthode d'imputation afin de traiter avec les données manquantes.
@@ -130,7 +130,7 @@ Les axes factoriels sont montrés dans le Tableau \ref{Axe1Liste}. On constate qu
    		\  & Crd Dim1 & Crd Dim2 & Contrib Dim1 & Contrib Dim2 & Cos2 Dim1 & Cos2 Dim2 \\ \hline \hline 
 		dip 1 & 1.95 & 0.716 & \textbf{25.1} & 4.08 & \textbf{0.609} & 0.082 \\ \hline 
 		dip 2 & 3.47 & 0.698 & 1.37 & 0.0672 & 0.0288 & 0.00117 \\ \hline 
-		dip 3 & -0.327 & -0.396 & 3.91 & 6.94 & 0.349 & 0.513 \\ \hline 
+		dip 3 & -0.327 & -0.396 & 3.91 & 6.94 & \textbf{0.349} & \textbf{0.513} \\ \hline 
 		dip 4 & 1.78 & 0.64 & 0.602 & 0.0943 & 0.0127 & 0.00164 \\ \hline 
 		dip 5 & 2.23 & 0.627 & 4.37 & 0.417 & 0.0932 & 0.00735 \\ \hline 
 		dip 6 & -1.05 & 2.63 & 3.76 & \textbf{28.7} & 0.0847 & \textbf{0.536} \\ \hline 
@@ -138,12 +138,12 @@ Les axes factoriels sont montrés dans le Tableau \ref{Axe1Liste}. On constate qu
 		ad 2 & 1.30 & -2.88 & 1.48 & 8.77 & 0.0315 & 0.155 \\ \hline 
 		ad 3 & -1.40 & 4.15 & 0.82 & 8.72 & 0.0173 & 0.152 \\ \hline 
 		ad 4 & -0.288 & -0.549 & 0.581 & 2.55 & 0.0143 & 0.0519 \\ \hline 
-		ad 5 & -0.801 & 1.32 & 4.7 & \textbf{15.4} & 0.116 & 0.316 \\ \hline 
+		ad 5 & -0.801 & 1.32 & 4.7 & \textbf{15.4} & 0.116 & \textbf{0.316} \\ \hline 
 		ad 6 & -0.507 & -0.557 & 0.0684 & 0.1 & 0.00144 & 0.00174 \\ \hline 
 		ad 7 & -0.19 & -0.805 & 0.00689 & 0.149 & 0.000145 & 0.00259 \\ \hline 
 		ad 8 & -0.623 & 0.546 & 0.0591 & 0.0549 & 0.00124 & 0.000954 \\ \hline 
 		ad 9 & 1.85 & 0.66 & \textbf{30.8} & 4.71 & \textbf{0.793} & 0.101 \\ \hline 
-		FR & -0.186 & 0.0558 & 1.46 & 0.160 & 0.273 & 0.0246 \\ \hline 
+		FR & -0.186 & 0.0558 & 1.46 & 0.160 & \textbf{0.273} & 0.0246 \\ \hline 
 		HUE & 1.4 & 0.171 & 7 & 0.126 & 0.159 & 0.00237 \\ \hline 
 		UE & 1.61 & -1.67 & 4.62 & 6 & 0.100 & 0.108 \\ \hline 
 		sal 1 & 0.537 & -0.320 & 3.47 & 1.48 & 0.101 & 0.0356 \\ \hline 
@@ -182,7 +182,95 @@ La figure \ref{varListe1} montre qu'il y a une forte corrélation entre \textsl{d
 En considérant de plus près le groupe des élèves français (Figure \ref{factorFrL1}), on constate que les modalités $ad_1$ (Prépa), $ad_4$ (Maitrise de sciences), $ad_6$ (Arts et Métiers) et $ad_7$ (Militaire) sont très proches. Ce groupe de modalités, avec $dip_3$ (Ingénieur) et salaires moyennes ($sal_2$ et $sal_3$) indique les élèves du parcours typique d'ingénieur de Télécom ParisTech. Les élèves ENS, Polytechnique et Ingénieur de corps ($ad_3$, $ad_5$ et $dip_6$) sont mis un peu à part. La faible variance des modalités de la variable \textsl{salaire} montre que les parcours, les diplômes et les origines ne reflètent pas bien le montant de salaire; quoi qu'ils obtiennent comme diplôme, les salaires varient quand même fortement au sein de chaque groupe d'élèves.
 
 \subsection{Liste 2}
+Avec la première liste, on remarque une forte corrélation entre \textsl{diplôme} et \textsl{admission}. Dans la deuxième liste, on prendre la variable \textsl{admission} comme le représentant de ces deux variables. On y ajoute la variable \textsl{promo}, et deux autres variables reflétant les carrières des élèves, \textsl{Type d'entreprise} et \textsl{salaire brute}. Les deux variables quantitatives \textsl{salaire brute} et \textsl{promo} sont factorisées en $4$ modalités par variable selon les indications à la partie \ref{traitPre}.
 
+\subsubsection{Valeurs propres}
+\begin{table}\centering
+	\begin{tabular} {| l ||c |c |c |}  
+ 		\hline 
+   		\  & eigenvalue & percentage of variance & cumulative percentage of variance \\ \hline \hline 
+		dim 1 & 0.414 & 9.82 & 9.82 \\ \hline 
+		dim 2 & 0.34 & 8.05 & 17.9 \\ \hline 
+		dim 3 & 0.316 & 7.47 & 25.3 \\ \hline 
+		dim 4 & 0.271 & 6.42 & 31.8 \\ \hline 
+		dim 5 & 0.266 & 6.3 & 38.1 \\ \hline 
+		dim 6 & 0.261 & 6.17 & 44.2 \\ \hline 
+		dim 7 & 0.255 & 6.04 & 50.3 \\ \hline 
+		dim 8 & 0.253 & 6 & 56.3 \\ \hline 
+		dim 9 & 0.248 & 5.86 & 62.1 \\ \hline 
+		dim 10 & 0.240 & 5.7 & 67.8 \\ \hline 
+		dim 11 & 0.233 & 5.53 & 73.4 \\ \hline 
+		dim 12 & 0.227 & 5.37 & 78.7 \\ \hline 
+		dim 13 & 0.220 & 5.2 & 84 \\ \hline 
+		dim 14 & 0.203 & 4.82 & 88.8 \\ \hline 
+		dim 15 & 0.194 & 4.59 & 93.3 \\ \hline 
+		dim 16 & 0.167 & 3.96 & 97.3 \\ \hline 
+		dim 17 & 0.114 & 2.69 & 100 \\ \hline 
+	\end{tabular}
+	\caption{Les résultats relatifs aux modalités de la deuxième liste.}
+	\label{ResAuxModL2}
+\end{table}
+
+Les $17$ axes factoriels sont montrés au Tableau \ref{ResAuxModL2}. La contribution des axes à la variance totale descend plutôt lentement.
+
+\subsubsection{Les résultats relatifs aux modalités}
+\begin{table}\centering
+	\begin{tabular} {| l ||c |c |c |c |c |c |}  
+ 		\hline 
+   		\  & Crd Dim1 & Crd Dim2 & Contrib Dim1 & Contrib Dim2 & Cos2 Dim1 & Cos2 Dim2 \\ \hline \hline 
+		ad 1 & -0.088 & -0.149 & 0.221 & 0.774 & 0.00695 & 0.0200 \\ \hline 
+		ad 2 & 1.62 & 0.965 & 2.91 & 1.26 & 0.0491 & 0.0174 \\ \hline 
+		ad 3 & -2.24 & 1.24 & 2.65 & 0.994 & 0.0443 & 0.0136 \\ \hline 
+		ad 4 & 0.259 & -0.862 & 0.594 & 8.03 & 0.0115 & 0.128 \\ \hline 
+		ad 5 & -0.857 & 0.741 & 6.78 & 6.19 & 0.133 & 0.0993 \\ \hline 
+		ad 6 & -1.17 & -0.235 & 0.465 & 0.0226 & 0.00775 & 0.000310 \\ \hline 
+		ad 7 & 3.11 & 6.72 & 2.33 & \textbf{13.2} & 0.0388 & 0.181 \\ \hline 
+		ad 8 & 1.45 & 3.43 & 0.403 & 2.77 & 0.00671 & 0.0378 \\ \hline 
+		ad 9 & 0.61 & 0.0994 & 4.2 & 0.136 & 0.0857 & 0.00228 \\ \hline 
+		tep 1 & -0.0341 & -0.276 & 0.0589 & 4.68 & 0.00607 & \textbf{0.396} \\ \hline 
+		tep 2 & 1.07 & 2.19 & 4.4 & \textbf{22.5} & 0.0782 & \textbf{0.328} \\ \hline 
+		tep 3 & -0.263 & 0.761 & 0.297 & 3.03 & 0.00532 & 0.0445 \\ \hline 
+		tep 4 & -0.795 & 1.41 & 1.01 & 3.84 & 0.0172 & 0.0538 \\ \hline 
+		sal 1 & 1.09 & 0.507 & \textbf{18} & 4.75 & \textbf{0.414} & 0.0894 \\ \hline 
+		sal 2 & 0.285 & -0.547 & 1.10 & 4.94 & 0.0244 & 0.0897 \\ \hline 
+		sal 3 & -0.228 & -0.501 & 0.781 & 4.59 & 0.0178 & 0.0859 \\ \hline 
+		sal 4 & -1.02 & 0.434 & \textbf{17.3} & 3.83 & \textbf{0.41} & 0.0744 \\ \hline 
+		pro 1 & -1.17 & 0.628 & \textbf{19.7} & 6.89 & \textbf{0.428} & 0.123 \\ \hline 
+		pro 2 & -0.346 & -0.675 & 1.47 & 6.83 & 0.0307 & 0.117 \\ \hline 
+		pro 3 & 0.285 & -0.188 & 0.995 & 0.526 & 0.0207 & 0.00897 \\ \hline 
+		pro 4 & 0.817 & 0.0745 & \textbf{14.4} & 0.145 & \textbf{0.369} & 0.00307 \\ \hline 
+	\end{tabular}
+	\caption{Les résultats relatifs aux modalités de la deuxième liste.}
+	\label{ResAuxModL2}
+\end{table}
+
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL2}. Les modalités contribuant les plus au premier axe sont $sal_1$, $sal_4$, $pro_1$, $pro_4$, c'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{salaire brute} et \textsl{promo}. (Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $pro_1$ sont les élèves les plus anciens alors que $pro_4$ sont les plus jeunes). Pour le deuxième axe, ce sont $ad_7$ (Militaire) et $tep_2$ (Administration) qui y contribuent les plus. On peut constater que, si à la première liste, on se concentrait aux parcours, alors dans cette deuxième, on va insister sur les types d'entreprises et les salaires, dans les relations plus ou moins avec les admissions.
+
+\subsubsection{Résultats graphiques}
+\begin{figure}[ht]\centering
+    \begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{varListe2.jpeg}
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la deuxième liste.}
+  		\label{varListe2}
+  	\end{minipage}\hfill
+	\begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{factorListe2.jpeg}\\
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la deuxième liste.}
+		\label{factorListe2}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]\centering
+  	\includegraphics[width=.45\textwidth]{factorFrL2.jpeg}
+  	\caption{Positionnement des modalités de plus près.}
+  	\label{factorFrL2}
+\end{figure}
+
+Le positionnement des variables sur les deux premiers axes est montré par la Figure \ref{varListe2}. On constate qu'il y a une forte corrélation entre les salaires et les promotions, c'est-à-dire que les salaires sont identifiées le plus par l'ancienneté des employés dans leurs entreprises. L'analyse sur la figure des modalités (la Figure \ref{factorListe2}) va montrer davantage cette relation.
+
+Sur la Figure \ref{factorListe2}, c'est difficile de partitionner les modalités en groupes comme ce qu'on a fait avec la première liste. Le premier axe marque (même si pas vraiment clair) l'opposition entre $ad_7$ (Militaire), $ad_8$ (Formation Prof), $ad_2$ (Double diplôme) avec $ad_3$ (Ec.Nat.Sup), $ad_5$ (Polytechnique) et $ad_6$ (Arts et Métiers). Le premier groupe correspond à $tep_2$ (Administration), et $sal_1$ (basses salaires), alors que le deuxième correspond à $tep_4$ (Libérale), $sal_4$ (haute salaire). Le deuxième axe est caractérisé par l'opposition privé-publique. On a des admissions qui préfèrent les entreprises privées: $ad_4$ (Maitrise de Sciences), $ad_1$ (Prépa), $ad_6$ (Arts et Métiers), et $ad_9$ (Autres admissions). Les entreprises privées s'occupent des salaires moyennes, alors que dans le domaine publique, les salaires peuvent être inférieures ou supérieures.
+
+On va regarder cette figure de plus près pour découvrir les regroupements importants de modalités. La corrélation entre \textsl{salaire brute} et \textsl{promo} s'exprime par les distances proches entre les modalités de salaire et celle de promotion, par exemple, entre $pro_1$ et $sal_4$, $pro_2$ et $sal_3$. On constate aussi un groupe de salaires moyennes contenant $ad_1$ (Prépa), $ad_4$ (Maitrise de Sciences), $sal_2$, $sal_3$, $pro_2$, $pro_3$, $tep_1$ (Privé). Ce sont les élèves typiques de Télécom ParisTech qui préfèrent les entreprises privées. Il y a un autre groupe des élèves polytechniciens: $ad_5$, $pro_1$, $sal_4$ et $tep_3$; ils sont caractérisés par l'ancienneté, haute salaires, et entreprises publiques. En terme de promotions, les premières ($pro_1$) s'écarte des autres, marquant un changement ou une réforme probable au niveau d'admissions et de carrières. La modalité $ad_9$ (Autres admissions) concerne particulièrement $pro_4$, indiquant que ces nouvelles admissions viennent juste d'être additionnées ces dernières années.
 
 \section{Activités professionnelles, entreprises, responsabilités et salaires}
 
