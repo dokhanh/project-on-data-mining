@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.5)  18 JUN 2012 04:10
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.5)  18 JUN 2012 19:39
 entering extended mode
 **report.tex
 (C:\Users\Khanh\workspace\coursDataMining\project\report\report.tex
@@ -335,7 +335,11 @@ Package: amssymb 2009/06/22 v3.00
 \f@ncyO@olf=\skip59
 \f@ncyO@orf=\skip60
 )
-(C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux)
+(C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux
+
+LaTeX Warning: Label `ResAuxModL2' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
 LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
@@ -349,8 +353,7 @@ LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
 LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 79.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Info: Redefining \degres on input line 79.
@@ -478,28 +481,51 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2] [3] [4 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe1.j
 peg> <C:/Users/Khanh/workspace/coursDataMining/project/report/factorListe1.jpeg
->] [5 <C:/Users/Khanh/workspace/coursDataMining/project/report/factorFrL1.jpeg>
-] (C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux) ) 
+>] [5] <varListe2.jpeg, id=29, 674.52pt x 674.52pt>
+File: varListe2.jpeg Graphic file (type jpg)
+ <use varListe2.jpeg>
+Package pdftex.def Info: varListe2.jpeg used on input line 252.
+(pdftex.def)             Requested size: 217.66211pt x 217.66226pt.
+
+<factorListe2.jpeg, id=30, 682.55pt x 682.55pt>
+File: factorListe2.jpeg Graphic file (type jpg)
+ <use factorListe2.jpeg>
+Package pdftex.def Info: factorListe2.jpeg used on input line 257.
+(pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
+
+<factorFrL2.jpeg, id=31, 863.225pt x 682.55pt>
+File: factorFrL2.jpeg Graphic file (type jpg)
+ <use factorFrL2.jpeg>
+Package pdftex.def Info: factorFrL2.jpeg used on input line 264.
+(pdftex.def)             Requested size: 217.66211pt x 172.10558pt.
+ [6 <C:/Users/Khanh/workspace/coursDataMining/project/report/factorFrL1.jpeg> <
+C:/Users/Khanh/workspace/coursDataMining/project/report/varListe2.jpeg> <C:/Use
+rs/Khanh/workspace/coursDataMining/project/report/factorListe2.jpeg>] [7 <C:/Us
+ers/Khanh/workspace/coursDataMining/project/report/factorFrL2.jpeg>]
+(C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4565 strings out of 494053
- 60594 string characters out of 3148604
- 143645 words of memory out of 3000000
- 7730 multiletter control sequences out of 15000+200000
+ 4585 strings out of 494053
+ 60938 string characters out of 3148604
+ 142726 words of memory out of 3000000
+ 7747 multiletter control sequences out of 15000+200000
  64182 words of font info for 63 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  28i,10n,43p,1517b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Pro
-gram Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9
-/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/
-lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr1
-7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb>
-Output written on report.pdf (5 pages, 386821 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb>
+Output written on report.pdf (7 pages, 622645 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
