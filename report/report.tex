@@ -82,16 +82,65 @@
 
 \section{Introduction}
 
-\section{Parcours, origines, entreprises et salaires}
+\subsection{Contexte de l'étude et objectif de l'analyse}
+L'étude est effectué dans le cadre des promotions de Télécom Paristech de 1962 à 2005. On va prendre en compte des types d'admission, de diplôme, de domaine professionnelle, d'entreprise,... différentes, pour comprendre leurs relations, aussi leurs effets sur le salaire brut. L'objectif de l'analyse est pour apporter un bref panorama sur les liens entre les facteurs scolaires avec les facteurs industrielles, et aider les nouveaux ingénieurs de choisir leurs carrières futurs.
+\subsection{Description des données utilisées}
+Dans le cadre de cette étude, on utilise la donnée de l'enquête de "Fonctions et Salaires Edition 2009" sur les télécommiens de promotions 1962 à 2005. L'enquête se comporte par plusieurs questions de facteurs scolaires, de fonctions et de salaires après l'étude.\\
+
+Les variables qui vont être analysés sont: \textsl{diplôme}, \textsl{promotion}, \textsl{admission}, \textsl{origine}, \textsl{type d'entreprise}, \textsl{taille d'entreprise}, \textsl{responsabilité}, \textsl{activité professionnelle}, \textsl{création d'entreprise} et \textsl{salaire brut}. Parce que le nombre de variables intéressantes est assez grand, c'est difficile de comprendre des phénomènes effectivement. Donc, les variables sont divisés en deux groupes par rapport à deux thèmes principaux: parcours/origine et création d'entreprise/domaine professionnelle. Le Tableau \ref{tbl:stat_simple} montre quelques statistiques simples de donnée par rapport aux variables liées dans l'étude. La Figure \ref{hist_salbrut} représente l'histogramme de salaire brut. En fait on ne traite pas \textsl{salaire brut} comme une variable quantitative, mais la transforme en une variable qualitative par la couper en intervalles équilibrés.\\
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{llllll}
+\hline\hline
+\multicolumn{1}{l}{Summary}&\multicolumn{1}{c}{Diplôme}&\multicolumn{1}{c}{Promotion}&\multicolumn{1}{c}{Admission}&\multicolumn{1}{c}{Origine}&\multicolumn{1}{c}{Type d'entreprise}\tabularnewline
+\hline
+&1:173  &28     : 93  &1      :593  &FR :1114  &1   :1050  \tabularnewline
+&2:  3  &30     : 88  &9      :235  &HUE:  94  &2   :  80  \tabularnewline
+&3:961  &31     : 88  &5      :192  &UE :  47  &3   :  89  \tabularnewline
+&4:  5  &29     : 83  &4      :184  &NA&4   :  33  \tabularnewline
+&5: 23  &27     : 77  &2      : 23  &NA&NA's:   3  \tabularnewline
+&6: 90  &26     : 64  &(Other): 27  &NA&NA\tabularnewline
+&NA&(Other):762  &NA's   :  1  &NA&NA\tabularnewline
+\hline
+\end{tabular}
+\begin{tabular}{llllll}
+\\
+\hline\hline
+\multicolumn{1}{c}{Création d'entreprise}&\multicolumn{1}{c}{Taille d'entreprise}&\multicolumn{1}{c}{Responsabilité}&\multicolumn{1}{c}{Activité principale}&\multicolumn{1}{c}{Salaire brut}\tabularnewline
+\hline
+1   : 115  &8      :567  &1   :280  &2      :213  &Min.   :    9000  \tabularnewline
+2   :1136  &6      :153  &2   :199  &1      :123  &1st Qu.:   52550  \tabularnewline
+NA's:   4  &7      :115  &3   : 86  &11     : 92  &Median :   70000  \tabularnewline
+NA&4      :103  &4   :168  &6      : 85  &Mean   :  123785  \tabularnewline
+NA&2      : 99  &5   :314  &4      : 84  &3rd Qu.:  102750  \tabularnewline
+NA&(Other):212  &6   :195  &(Other):630  &Max.   :15000000  \tabularnewline
+NA&NA's   :  6  &NA's: 13  &NA's   : 28  &NA's   :45  \tabularnewline
+\hline
+\end{tabular}
+\caption{Statistiques simples de Donnée}
+\label{tbl:stat_simple}
+\end{center}
+\end{table}
+
+\begin{figure}[ht]\centering
+  	\includegraphics[width=.7\textwidth]{hist_salbrut.pdf}
+  	\caption{L'histogramme de Salaire brut}
+  	\label{hist_salbrut}
+\end{figure}
+
+\subsection{Descriptif des méthodes utilisées}
+
+\section{L'analyse sur parcours, origines, entreprises et salaires}
 Dans cette première partie, on étudie les relations entre les parcours et les origines des élèves avec les types d'entreprises dans lesquelles ils travaillent après leur obtention de diplômes, et le niveau de salaire ils pourront recevoir. Les relations entre l'admission et les diplômes qu'ils obtiennent ainsi que la cohérence des parcours sont aussi à étudier.
 
 \subsection{Traitements préliminaires des données}\label{traitPre}
-Dans cette étude de données, on ne traitera que les variables catégorielles par l'analyse de correspondances multiples. Il y a $6$ variables à analyser dans cette partie: \textsl{diplôme}, \textsl{promotion}, \textsl{admission}, \textsl{FR.UE.HUE}, \textsl{type d'entreprise}, et \textsl{salaire brute}. La variable \textsl{promotion} peut considérer comme quantitative ou qualitative. Cependant, même si elle est traitée comme une variable catégorielles, elle a beaucoup de catégories par rapport aux autres variables (ce qui pourrait diminuer son impact). Pour résoudre ce problème, on divise les promotions en $4$ intervalles équilibrés (en nombre d'éléments) en utilisant la fonction de \textsl{quantile}, et transforme donc la variable \textsl{promotion} en une variable qualitative de $4$ modalités. On effectue les mêmes démarches pour \textsl{salaire brute}.
+Dans cette étude de données, on ne traitera que les variables catégorielles par l'analyse de correspondances multiples. Il y a $6$ variables à analyser dans cette partie: \textsl{diplôme}, \textsl{promotion}, \textsl{admission}, \textsl{FR.UE.HUE} (origine), \textsl{type d'entreprise}, et \textsl{salaire brut}. La variable \textsl{promotion} peut considérer comme quantitative ou qualitative. Cependant, même si elle est traitée comme une variable catégorielles, elle a beaucoup de catégories par rapport aux autres variables (ce qui pourrait diminuer son impact). Pour résoudre ce problème, on divise les promotions en $4$ intervalles équilibrés (en nombre d'éléments) en utilisant la fonction de \textsl{quantile}, et transforme donc la variable \textsl{promotion} en une variable qualitative de $4$ modalités. On effectue les mêmes démarches pour \textsl{salaire brut}.
 
 Il y a des cases vides (ou erronées) dans les données. La raison est plutôt qu'on n'a pas pu obtenir de bonnes informations et n'est pas que les interviewés voulaient répondre autrement. On souhaite donc remplacer ces valeurs nulles. Dans ce projet, l'analyse de correspondances multiples (ACM) s'effectue avec les tableaux disjonctifs complets créés par la méthode d'imputation afin de traiter avec les données manquantes.
 
 \subsection{Liste 1}
-On considère quatre variables: \textsl{diplôme}, \textsl{admission}, \textsl{FR.UE.HUE} et \textsl{salaire brute}.
+On considère quatre variables: \textsl{diplôme}, \textsl{admission}, \textsl{FR.UE.HUE} et \textsl{salaire brut}.
 
 \subsubsection{Valeurs propres}
 \begin{table}\centering
@@ -155,7 +204,7 @@ Les axes factoriels sont montrés dans le Tableau \ref{Axe1Liste}. On constate qu
 	\label{ResAuxMod}
 \end{table}
 
-Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxMod}, quelques éléments importants sont en gras. Les deux modalités contribuant les plus au premier axe sont $dip_1$ (Mastère) et $ad_9$ (Autres admissions). Alors qu'au second axe, ce sont les modalités $dip_6$ (Ingénieur du corps) et $ad_5$ (Polytechnique) qui contribuent les plus. On retient ces modalités, car les axes pourraient être caractérisés par elles. Par exemple, la coordination de $dip_6$ sur le second axe est la plus positive parmi les modalités de la même variable. On observe ainsi que les variables FR.UE.HUE et \textsl{salaire brute} jouent les rôles peu importants dans la formation de ces axes.
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxMod}, quelques éléments importants sont en gras. Les deux modalités contribuant les plus au premier axe sont $dip_1$ (Mastère) et $ad_9$ (Autres admissions). Alors qu'au second axe, ce sont les modalités $dip_6$ (Ingénieur du corps) et $ad_5$ (Polytechnique) qui contribuent les plus. On retient ces modalités, car les axes pourraient être caractérisés par elles. Par exemple, la coordination de $dip_6$ sur le second axe est la plus positive parmi les modalités de la même variable. On observe ainsi que les variables FR.UE.HUE et \textsl{salaire brut} jouent les rôles peu importants dans la formation de ces axes.
 
 \subsubsection{Résultats graphiques}
 \begin{figure}[ht]\centering
@@ -182,7 +231,7 @@ La figure \ref{varListe1} montre qu'il y a une forte corrélation entre \textsl{d
 En considérant de plus près le groupe des élèves français (Figure \ref{factorFrL1}), on constate que les modalités $ad_1$ (Prépa), $ad_4$ (Maitrise de sciences), $ad_6$ (Arts et Métiers) et $ad_7$ (Militaire) sont très proches. Ce groupe de modalités, avec $dip_3$ (Ingénieur) et salaires moyennes ($sal_2$ et $sal_3$) indique les élèves du parcours typique d'ingénieur de Télécom ParisTech. Les élèves ENS, Polytechnique et Ingénieur de corps ($ad_3$, $ad_5$ et $dip_6$) sont mis un peu à part. La faible variance des modalités de la variable \textsl{salaire} montre que les parcours, les diplômes et les origines ne reflètent pas bien le montant de salaire; quoi qu'ils obtiennent comme diplôme, les salaires varient quand même fortement au sein de chaque groupe d'élèves.
 
 \subsection{Liste 2}
-Avec la première liste, on remarque une forte corrélation entre \textsl{diplôme} et \textsl{admission}. Dans la deuxième liste, on prendre la variable \textsl{admission} comme le représentant de ces deux variables. On y ajoute la variable \textsl{promo}, et deux autres variables reflétant les carrières des élèves, \textsl{Type d'entreprise} et \textsl{salaire brute}. Les deux variables quantitatives \textsl{salaire brute} et \textsl{promo} sont factorisées en $4$ modalités par variable selon les indications à la partie \ref{traitPre}.
+Avec la première liste, on remarque une forte corrélation entre \textsl{diplôme} et \textsl{admission}. Dans la deuxième liste, on prendre la variable \textsl{admission} comme le représentant de ces deux variables. On y ajoute la variable \textsl{promo}, et deux autres variables reflétant les carrières des élèves, \textsl{Type d'entreprise} et \textsl{salaire brut}. Les deux variables quantitatives \textsl{salaire brut} et \textsl{promo} sont factorisées en $4$ modalités par variable selon les indications à la partie \ref{traitPre}.
 
 \subsubsection{Valeurs propres}
 \begin{table}\centering
@@ -244,7 +293,7 @@ Les $17$ axes factoriels sont montrés au Tableau \ref{ResAuxModL2}. La contribut
 	\label{ResAuxModL2}
 \end{table}
 
-Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL2}. Les modalités contribuant les plus au premier axe sont $sal_1$, $sal_4$, $pro_1$, $pro_4$, c'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{salaire brute} et \textsl{promo}. (Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $pro_1$ sont les élèves les plus anciens alors que $pro_4$ sont les plus jeunes). Pour le deuxième axe, ce sont $ad_7$ (Militaire) et $tep_2$ (Administration) qui y contribuent les plus. On peut constater que, si à la première liste, on se concentrait aux parcours, alors dans cette deuxième, on va insister sur les types d'entreprises et les salaires, dans les relations plus ou moins avec les admissions.
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL2}. Les modalités contribuant les plus au premier axe sont $sal_1$, $sal_4$, $pro_1$, $pro_4$, c'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{salaire brut} et \textsl{promo}. (Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $pro_1$ sont les élèves les plus anciens alors que $pro_4$ sont les plus jeunes). Pour le deuxième axe, ce sont $ad_7$ (Militaire) et $tep_2$ (Administration) qui y contribuent les plus. On peut constater que, si à la première liste, on se concentrait aux parcours, alors dans cette deuxième, on va insister sur les types d'entreprises et les salaires, dans les relations plus ou moins avec les admissions.
 
 \subsubsection{Résultats graphiques}
 \begin{figure}[ht]\centering
@@ -270,17 +319,17 @@ Le positionnement des variables sur les deux premiers axes est montré par la Fig
 
 Sur la Figure \ref{factorListe2}, c'est difficile de partitionner les modalités en groupes comme ce qu'on a fait avec la première liste. Le premier axe marque (même si pas vraiment clair) l'opposition entre $ad_7$ (Militaire), $ad_8$ (Formation Prof), $ad_2$ (Double diplôme) avec $ad_3$ (Ec.Nat.Sup), $ad_5$ (Polytechnique) et $ad_6$ (Arts et Métiers). Le premier groupe correspond à $tep_2$ (Administration), et $sal_1$ (basses salaires), alors que le deuxième correspond à $tep_4$ (Libérale), $sal_4$ (haute salaire). Le deuxième axe est caractérisé par l'opposition privé-publique. On a des admissions qui préfèrent les entreprises privées: $ad_4$ (Maitrise de Sciences), $ad_1$ (Prépa), $ad_6$ (Arts et Métiers), et $ad_9$ (Autres admissions). Les entreprises privées s'occupent des salaires moyennes, alors que dans le domaine publique, les salaires peuvent être inférieures ou supérieures.
 
-On va regarder cette figure de plus près pour découvrir les regroupements importants de modalités. La corrélation entre \textsl{salaire brute} et \textsl{promo} s'exprime par les distances proches entre les modalités de salaire et celle de promotion, par exemple, entre $pro_1$ et $sal_4$, $pro_2$ et $sal_3$. On constate aussi un groupe de salaires moyennes contenant $ad_1$ (Prépa), $ad_4$ (Maitrise de Sciences), $sal_2$, $sal_3$, $pro_2$, $pro_3$, $tep_1$ (Privé). Ce sont les élèves typiques de Télécom ParisTech qui préfèrent les entreprises privées. Il y a un autre groupe des élèves polytechniciens: $ad_5$, $pro_1$, $sal_4$ et $tep_3$; ils sont caractérisés par l'ancienneté, haute salaires, et entreprises publiques. En terme de promotions, les premières ($pro_1$) s'écarte des autres, marquant un changement ou une réforme probable au niveau d'admissions et de carrières. La modalité $ad_9$ (Autres admissions) concerne particulièrement $pro_4$, indiquant que ces nouvelles admissions viennent juste d'être additionnées ces dernières années.
+On va regarder cette figure de plus près pour découvrir les regroupements importants de modalités. La corrélation entre \textsl{salaire brut} et \textsl{promo} s'exprime par les distances proches entre les modalités de salaire et celle de promotion, par exemple, entre $pro_1$ et $sal_4$, $pro_2$ et $sal_3$. On constate aussi un groupe de salaires moyennes contenant $ad_1$ (Prépa), $ad_4$ (Maitrise de Sciences), $sal_2$, $sal_3$, $pro_2$, $pro_3$, $tep_1$ (Privé). Ce sont les élèves typiques de Télécom ParisTech qui préfèrent les entreprises privées. Il y a un autre groupe des élèves polytechniciens: $ad_5$, $pro_1$, $sal_4$ et $tep_3$; ils sont caractérisés par l'ancienneté, haute salaires, et entreprises publiques. En terme de promotions, les premières ($pro_1$) s'écarte des autres, marquant un changement ou une réforme probable au niveau d'admissions et de carrières. La modalité $ad_9$ (Autres admissions) concerne particulièrement $pro_4$, indiquant que ces nouvelles admissions viennent juste d'être additionnées ces dernières années.
 
-\section{Activités professionnelles, entreprises, responsabilités et salaires}
+\section{L'analyse sur activités professionnelles, entreprises, responsabilités et salaires}
 Dans cette deuxième partie, on étudie les relations entre les domaines professionnelles, les responsabilités et les tailles d'entreprises avec le niveau de salaire. Aussi, les relations entre les types d'entreprises, la création d'entreprise avec les responsabilités sont étudiés.
 
 \subsection{Traitements préliminaires des données}
-Dans cette étude de données, on traitera les variables catégorielles: \textsl{Type d'entreprise}, \textsl{Création d'entreprise}, \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brute}. On effectue les même façons du traitement préliminaires de la section \ref{traitPre} pour le variable quantitative (\textsl{Salaire brute}) et des cases vides dans les données.
+Dans cette étude de données, on traitera les variables catégorielles: \textsl{Type d'entreprise}, \textsl{Création d'entreprise}, \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brut}. On effectue les même façons du traitement préliminaires de la section \ref{traitPre} pour le variable quantitative (\textsl{Salaire brut}) et des cases vides dans les données.
 
 \subsection{Liste 1}
 \label{sec:list31}
-On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brute}
+On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brut}
 \subsubsection{Valeurs propres}
 \begin{table}\centering
 	\begin{tabular} {| l ||c |c |c |}  
@@ -371,7 +420,7 @@ sal 4 & 0.681 & -0.889 & 7.64 & \textbf{14.3} & 0.183 & \textbf{0.312} \\ \hline
 	\label{ResAuxModL31}
 \end{table}
 
-Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL31}. Les modalités contribuant les plus au premier axe sont $ta_1$, $ta_2$, $ta_8$ (Taille d'Entreprise ), $re_3$ (Responsabilité). Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $ta_1$ sont les entreprises les plus petite alors que $ta_8$ sont les plus grandes. Pour le deuxième axe, ce sont $re_2$, $re_4$, $sal_1$, $sal_4$ qui y contribuent les plus. C'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{responsabilité} (sur le premier axe) et \textsl{salaire brute} (sur le deuxième axe). On va le vérifier avec l'analysais  des résultats graphiques après.
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL31}. Les modalités contribuant les plus au premier axe sont $ta_1$, $ta_2$, $ta_8$ (Taille d'Entreprise ), $re_3$ (Responsabilité). Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $ta_1$ sont les entreprises les plus petite alors que $ta_8$ sont les plus grandes. Pour le deuxième axe, ce sont $re_2$, $re_4$, $sal_1$, $sal_4$ qui y contribuent les plus. C'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{responsabilité} (sur le premier axe) et \textsl{salaire brut} (sur le deuxième axe). On va le vérifier avec l'analysais  des résultats graphiques après.
 
 \subsubsection{Résultats graphiques}
 \begin{figure}[ht]\centering
@@ -390,7 +439,7 @@ Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL31}.
 La Figure \ref{varListe31} montre le positionnement des variables sur les deux premiers axes. On constate qu'il n'y a pas forte corrélation entre les variables. 
 Néanmoins, on peut voir une corrélation, pas très forte, entre la domaine professionnelle, taille d'entreprise et la responsabilité. C'est-à-dire que pour chaque domaine, chaque taille d'entreprise, on a les responsabilités typiques (et aussi les salaires typiques).\\
 
-Sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes de caractères. En gros, le premier axe est caractérisé par l'opposition entre $ta_1$ (petite entreprises) et $ta_8$ (grande entreprises). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brute). Les modalités de la domaine professionnelle sont distribuées selon la taille d'entreprise. Sur le premier axe, on peut voir les quatre groupes plus principales dépend le salaire brute:
+Sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes de caractères. En gros, le premier axe est caractérisé par l'opposition entre $ta_1$ (petite entreprises) et $ta_8$ (grande entreprises). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brut). Les modalités de la domaine professionnelle sont distribuées selon la taille d'entreprise. Sur le premier axe, on peut voir les quatre groupes plus principales dépend le salaire brut:
 \begin{itemize}
 \item Le premier groupe contient $re_{4,1}$ (Ingénieur d'Études/Experts), $ta_5$ (250-499 salariés) et $sal_1$. Les activités professionnelles liées sont Recherche/Enseignement et Conseil en Technologie.
 \item Le deuxième groupe contient $re_5$ (Chef de Projet), $ta_6$ (500-1999 salariés) et $sal_2$. Les activités professionnelles liées sont Industrie des télécommunications, Editeur de logiciels et Industries électroniques.
@@ -399,7 +448,7 @@ Sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des gro
 \end{itemize}
 
 \subsection{Liste 2}
-On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{création d'entreprise} et \textsl{Salaire brute}
+On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{création d'entreprise} et \textsl{Salaire brut}
 
 \subsubsection{Valeurs propres}
 \begin{table}\centering
@@ -458,7 +507,7 @@ sal 4 & 0.59 & -0.99 & 4.97 & \textbf{19.2} & 0.138 & \textbf{0.387} \\ \hline
 	\label{ResAuxModL32}
 \end{table}
 
-Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL32}. Les modalités contribuant les plus au premier axe sont $ta_1$ (taille d'entreprise), $cr_1$ (création d'entreprise), $re_3$ (responsabilité). Pour le deuxième axe, ce sont $re_2$ (responsabilité), $sal_1$, $sal_4$ (salaire brute) qui y contribuent les plus. Donc, on peut constater que les catégories se différenciant les plus parmi les modalités des variables \textsl{création d'entreprise} (sur le premier axe) et \textsl{salaire brute} (sur le deuxième axe).
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL32}. Les modalités contribuant les plus au premier axe sont $ta_1$ (taille d'entreprise), $cr_1$ (création d'entreprise), $re_3$ (responsabilité). Pour le deuxième axe, ce sont $re_2$ (responsabilité), $sal_1$, $sal_4$ (salaire brut) qui y contribuent les plus. Donc, on peut constater que les catégories se différenciant les plus parmi les modalités des variables \textsl{création d'entreprise} (sur le premier axe) et \textsl{salaire brut} (sur le deuxième axe).
 
 \subsubsection{Résultats graphiques}
 \begin{figure}[ht]\centering
@@ -476,14 +525,12 @@ Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL32}.
 
 Le positionnement des variables sur les deux premiers axes est montré par la Figure \ref{varListe32}. On peut voir qu'il y a une forte corrélation entre \textsl{taille d'entreprise} et \textsl{création d'entreprise}. C'est raisonnable parce-que, normalement, la majorité ne peut pas créer grande entreprise, mais les entreprises privés et à petite échelle.
 
-Avec la même façon de la section \ref{sec:list31}, sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes typiques. En gros, le premier axe est caractérisé par l'opposition entre $cr_1$ (crée une entreprise) et $cr_2$ (n'avoir pas une entreprise). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brute). On peut indiquer deux groupes principales, selon le premier axe:
+Avec la même façon de la section \ref{sec:list31}, sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes typiques. En gros, le premier axe est caractérisé par l'opposition entre $cr_1$ (crée une entreprise) et $cr_2$ (n'avoir pas une entreprise). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brut). On peut indiquer deux groupes principales, selon le premier axe:
 
 \begin{itemize}
-\item Le premier groupe contient $cr_1$ (crée une entreprise), $ta_1$ (mois de 10 salariés) et $re_{3}$ (Directeur Général). C'est assez raisonnable ici qu'on crée une petite entreprise privé et devient le directeur. Il se passe tous jours comme ça aujourd'hui.
+\item Le premier groupe contient $cr_1$ (crée une entreprise), $ta_1$ (mois de 10 salariés) et $re_{3}$ (Directeur Général). C'est assez raisonnable qu'on crée une petite entreprise privé et devient le directeur. Il se passe tous jours comme ça aujourd'hui.
 \item Le deuxième groupe contient $cr_2$ (n'avoir pas une entreprise ), $ta_{6,7,8}$ (grandes entreprises) et $sal_{2,3}$. Et c'est vrai! C'est normal que si on n'a pas une entreprise, on travaille dans une assez grande société, avec le salaire moyenne.
 \end{itemize}
-
-
 
 \section{Conclusions}
 
