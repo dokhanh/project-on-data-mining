@@ -273,6 +273,217 @@ Sur la Figure \ref{factorListe2}, c'est difficile de partitionner les modalités 
 On va regarder cette figure de plus près pour découvrir les regroupements importants de modalités. La corrélation entre \textsl{salaire brute} et \textsl{promo} s'exprime par les distances proches entre les modalités de salaire et celle de promotion, par exemple, entre $pro_1$ et $sal_4$, $pro_2$ et $sal_3$. On constate aussi un groupe de salaires moyennes contenant $ad_1$ (Prépa), $ad_4$ (Maitrise de Sciences), $sal_2$, $sal_3$, $pro_2$, $pro_3$, $tep_1$ (Privé). Ce sont les élèves typiques de Télécom ParisTech qui préfèrent les entreprises privées. Il y a un autre groupe des élèves polytechniciens: $ad_5$, $pro_1$, $sal_4$ et $tep_3$; ils sont caractérisés par l'ancienneté, haute salaires, et entreprises publiques. En terme de promotions, les premières ($pro_1$) s'écarte des autres, marquant un changement ou une réforme probable au niveau d'admissions et de carrières. La modalité $ad_9$ (Autres admissions) concerne particulièrement $pro_4$, indiquant que ces nouvelles admissions viennent juste d'être additionnées ces dernières années.
 
 \section{Activités professionnelles, entreprises, responsabilités et salaires}
+Dans cette deuxième partie, on étudie les relations entre les domaines professionnelles, les responsabilités et les tailles d'entreprises avec le niveau de salaire. Aussi, les relations entre les types d'entreprises, la création d'entreprise avec les responsabilités sont étudiés.
+
+\subsection{Traitements préliminaires des données}
+Dans cette étude de données, on traitera les variables catégorielles: \textsl{Type d'entreprise}, \textsl{Création d'entreprise}, \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brute}. On effectue les même façons du traitement préliminaires de la section \ref{traitPre} pour le variable quantitative (\textsl{Salaire brute}) et des cases vides dans les données.
+
+\subsection{Liste 1}
+\label{sec:list31}
+On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{Activités professionelles} et \textsl{Salaire brute}
+\subsubsection{Valeurs propres}
+\begin{table}\centering
+	\begin{tabular} {| l ||c |c |c |}  
+ \hline 
+   \  & eigenvalue & percentage of variance & cumulative percentage of variance \\ \hline \hline 
+dim 1 & 0.419 & 5.33 & 5.33 \\ \hline 
+dim 2 & 0.383 & 4.87 & 10.2 \\ \hline 
+dim 3 & 0.327 & 4.17 & 14.4 \\ \hline 
+dim 4 & 0.307 & 3.91 & 18.3 \\ \hline 
+dim 5 & 0.302 & 3.85 & 22.1 \\ \hline 
+dim 6 & 0.293 & 3.73 & 25.9 \\ \hline 
+dim 7 & 0.285 & 3.63 & 29.5 \\ \hline 
+dim 8 & 0.279 & 3.55 & 33 \\ \hline 
+dim 9 & 0.274 & 3.48 & 36.5 \\ \hline 
+dim 10 & 0.269 & 3.42 & 39.9 \\ \hline 
+dim 11 & 0.267 & 3.4 & 43.3 \\ \hline 
+dim 12 & 0.259 & 3.29 & 46.6 \\ \hline 
+dim 13 & 0.253 & 3.21 & 49.8 \\ \hline 
+dim 14 & 0.248 & 3.16 & 53 \\ \hline 
+dim 15 & 0.245 & 3.12 & 56.1 \\ \hline 
+dim 16 & 0.244 & 3.11 & 59.2 \\ \hline 
+dim 17 & 0.244 & 3.1 & 62.3 \\ \hline 
+dim 18 & 0.242 & 3.08 & 65.4 \\ \hline 
+dim 19 & 0.238 & 3.03 & 68.4 \\ \hline 
+dim 20 & 0.236 & 3 & 71.4 \\ \hline 
+dim 21 & 0.228 & 2.91 & 74.3 \\ \hline 
+dim 22 & 0.223 & 2.84 & 77.2 \\ \hline 
+dim 23 & 0.22 & 2.8 & 80 \\ \hline 
+dim 24 & 0.213 & 2.71 & 82.7 \\ \hline 
+dim 25 & 0.207 & 2.64 & 85.3 \\ \hline 
+dim 26 & 0.205 & 2.61 & 87.9 \\ \hline 
+dim 27 & 0.191 & 2.43 & 90.4 \\ \hline 
+dim 28 & 0.189 & 2.41 & 92.8 \\ \hline 
+dim 29 & 0.181 & 2.31 & 95.1 \\ \hline 
+dim 30 & 0.157 & 2 & 97.1 \\ \hline 
+dim 31 & 0.125 & 1.59 & 98.7 \\ \hline 
+dim 32 & 0.104 & 1.32 & 100 \\ \hline 
+\end{tabular} 
+	\caption{Les axes factoriels de la première liste.}
+	\label{AxesListe31}
+\end{table}
+
+Le Tableau \ref{AxesListe31} montre les 32 axes factoriels de données. On constate que la contribution des axes à la variance totale descend plutôt lentement.
+
+\subsubsection{Résultats relatifs aux modalités}
+\begin{table}\centering
+\begin{tabular} {| l ||c |c |c |c |c |c |}  
+ \hline 
+   \  & Crd Dim1 & Crd Dim2 & Contrib Dim1 & Contrib Dim2 & Cos2 Dim1 & Cos2 Dim2 \\ \hline \hline 
+ta 1 & 1.57 & 0.577 & \textbf{9.77} & 1.45 & 0.176 & 0.0239 \\ \hline 
+ta 2 & 1.41 & 0.2 & \textbf{9.38} & 0.206 & 0.171 & 0.00344 \\ \hline 
+ta 3 & 0.757 & 0.0383 & 1.15 & 0.00322 & 0.0199 & 5.11e-05 \\ \hline 
+ta 4 & 0.49 & 0.482 & 1.18 & 1.25 & 0.0217 & 0.021 \\ \hline 
+ta 5 & -0.0226 & 0.83 & 0.00213 & 3.14 & 3.87e-05 & 0.052 \\ \hline 
+ta 6 & 0.0448 & 0.375 & 0.0147 & 1.13 & 0.000282 & 0.0197 \\ \hline 
+ta 7 & -0.129 & -0.146 & 0.0914 & 0.129 & 0.00169 & 0.00218 \\ \hline 
+ta 8 & -0.603 & -0.409 & \textbf{9.85} & 4.96 & \textbf{0.304} & 0.14 \\ \hline 
+re 1 & 0.159 & 0.537 & 0.339 & 4.26 & 0.00742 & 0.0852 \\ \hline 
+re 2 & 0.407 & -1.11 & 1.58 & \textbf{12.8} & 0.0318 & 0.235 \\ \hline 
+re 3 & 2.2 & -0.561 & \textbf{20.1} & 1.43 & \textbf{0.368} & 0.0239 \\ \hline 
+re 4 & -0.309 & 1.03 & 0.77 & \textbf{9.45} & 0.0151 & 0.169 \\ \hline 
+re 5 & -0.383 & 0.243 & 2.21 & 0.977 & 0.0499 & 0.0202 \\ \hline 
+re 6 & -0.74 & -0.683 & 5.1 & 4.77 & 0.102 & 0.0872 \\ \hline 
+act 1 & 0.063 & 0.0692 & 0.0237 & 0.0314 & 0.000452 & 0.000546 \\ \hline 
+act 2 & -0.77 & -0.639 & 6.12 & 4.61 & 0.126 & 0.087 \\ \hline 
+act 3 & -0.482 & -0.285 & 0.327 & 0.125 & 0.00574 & 0.00201 \\ \hline 
+act 4 & 1.06 & 0.375 & 4.63 & 0.633 & 0.0855 & 0.0107 \\ \hline 
+act 5 & 0.494 & 0.515 & 0.87 & 1.03 & 0.0159 & 0.0172 \\ \hline 
+act 6 & 0.417 & 0.787 & 0.722 & 2.82 & 0.0134 & 0.0475 \\ \hline 
+act 7 & 0.596 & 0.351 & 0.92 & 0.349 & 0.0166 & 0.00574 \\ \hline 
+act 8 & 0.485 & -0.0337 & 0.39 & 0.00206 & 0.00689 & 3.32e-05 \\ \hline 
+act 9 & -0.04 & 0.33 & 0.00403 & 0.301 & 7.21e-05 & 0.00491 \\ \hline 
+act 10 & 0.288 & -0.757 & 0.109 & 0.826 & 0.00191 & 0.0133 \\ \hline 
+act 11 & -0.0161 & -0.756 & 0.00116 & 2.8 & 2.15e-05 & 0.0475 \\ \hline 
+act 12 & 1.02 & 0.219 & 3.56 & 0.179 & 0.0649 & 0.00299 \\ \hline 
+act 13 & 0.0558 & 1.28 & 0.00941 & 5.41 & 0.00017 & 0.0892 \\ \hline 
+act 14 & -1.03 & 0.464 & 2.36 & 0.525 & 0.0419 & 0.0085 \\ \hline 
+act 15 & -0.788 & -0.146 & 1.65 & 0.0623 & 0.0295 & 0.00102 \\ \hline 
+act 16 & -0.695 & -0.414 & 0.934 & 0.364 & 0.0165 & 0.00586 \\ \hline 
+act 17 & -0.698 & -0.182 & 1.48 & 0.111 & 0.0267 & 0.00181 \\ \hline 
+act 18 & 1.61 & -0.985 & 3.31 & 1.36 & 0.0585 & 0.0219 \\ \hline 
+sal 1 & -0.201 & 0.959 & 0.607 & \textbf{15.1} & 0.0141 & \textbf{0.322} \\ \hline 
+sal 2 & -0.419 & 0.344 & 2.35 & 1.73 & 0.0523 & 0.0352 \\ \hline 
+sal 3 & -0.176 & -0.295 & 0.459 & 1.41 & 0.0106 & 0.0297 \\ \hline 
+sal 4 & 0.681 & -0.889 & 7.64 & \textbf{14.3} & 0.183 & \textbf{0.312} \\ \hline 
+\end{tabular}  
+	\caption{Les résultats relatifs aux modalités de la premiere liste.}
+	\label{ResAuxModL31}
+\end{table}
+
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL31}. Les modalités contribuant les plus au premier axe sont $ta_1$, $ta_2$, $ta_8$ (Taille d'Entreprise ), $re_3$ (Responsabilité). Attention les notations: $sal_1$ sont les salaires les plus basses et $sal_4$ sont les plus hautes; $ta_1$ sont les entreprises les plus petite alors que $ta_8$ sont les plus grandes. Pour le deuxième axe, ce sont $re_2$, $re_4$, $sal_1$, $sal_4$ qui y contribuent les plus. C'est-à-dire les catégories se différenciant les plus parmi les modalités des variables \textsl{responsabilité} (sur le premier axe) et \textsl{salaire brute} (sur le deuxième axe). On va le vérifier avec l'analysais  des résultats graphiques après.
+
+\subsubsection{Résultats graphiques}
+\begin{figure}[ht]\centering
+    \begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{varListe31.pdf}
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la premiere liste.}
+  		\label{varListe31}
+  	\end{minipage}\hfill
+	\begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{factorListe31.pdf}\\
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la premiere liste.}
+		\label{factorListe31}
+	\end{minipage}
+\end{figure}
+
+La Figure \ref{varListe31} montre le positionnement des variables sur les deux premiers axes. On constate qu'il n'y a pas forte corrélation entre les variables. 
+Néanmoins, on peut voir une corrélation, pas très forte, entre la domaine professionnelle, taille d'entreprise et la responsabilité. C'est-à-dire que pour chaque domaine, chaque taille d'entreprise, on a les responsabilités typiques (et aussi les salaires typiques).\\
+
+Sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes de caractères. En gros, le premier axe est caractérisé par l'opposition entre $ta_1$ (petite entreprises) et $ta_8$ (grande entreprises). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brute). Les modalités de la domaine professionnelle sont distribuées selon la taille d'entreprise. Sur le premier axe, on peut voir les quatre groupes plus principales dépend le salaire brute:
+\begin{itemize}
+\item Le premier groupe contient $re_{4,1}$ (Ingénieur d'Études/Experts), $ta_5$ (250-499 salariés) et $sal_1$. Les activités professionnelles liées sont Recherche/Enseignement et Conseil en Technologie.
+\item Le deuxième groupe contient $re_5$ (Chef de Projet), $ta_6$ (500-1999 salariés) et $sal_2$. Les activités professionnelles liées sont Industrie des télécommunications, Editeur de logiciels et Industries électroniques.
+\item Le troisième groupe contient $re_6$ (Responsable de Service), $ta_{7,8} $ (de 2000 salariés et plus) et $sal_3$. Les activités professionnelles liées sont Opérateur de télécommunications, Constructeur informatique, Industries automobiles et des transport, Energie, Aéronautique, espace.
+\item Le quatrième groupe contient $re_2$ (Directeur d'unité) et $sal_4$. Les activités professionnelles liées sont Banque - Assurance et autre services
+\end{itemize}
+
+\subsection{Liste 2}
+On considère quatre variables: \textsl{Taille d'entreprise}, \textsl{Responsabilités}, \textsl{création d'entreprise} et \textsl{Salaire brute}
+
+\subsubsection{Valeurs propres}
+\begin{table}\centering
+	\begin{tabular} {| l ||c |c |c |}  
+ \hline 
+   \  & eigenvalue & percentage of variance & cumulative percentage of variance \\ \hline \hline 
+dim 1 & 0.484 & 12.3 & 12.3 \\ \hline 
+dim 2 & 0.352 & 8.91 & 21.2 \\ \hline 
+dim 3 & 0.301 & 7.62 & 28.8 \\ \hline 
+dim 4 & 0.276 & 6.99 & 35.8 \\ \hline 
+dim 5 & 0.269 & 6.8 & 42.6 \\ \hline 
+dim 6 & 0.255 & 6.46 & 49 \\ \hline 
+dim 7 & 0.251 & 6.36 & 55.4 \\ \hline 
+dim 8 & 0.248 & 6.28 & 61.7 \\ \hline 
+dim 9 & 0.24 & 6.08 & 67.8 \\ \hline 
+dim 10 & 0.235 & 5.95 & 73.7 \\ \hline 
+dim 11 & 0.234 & 5.92 & 79.6 \\ \hline 
+dim 12 & 0.213 & 5.38 & 85 \\ \hline 
+dim 13 & 0.212 & 5.35 & 90.3 \\ \hline 
+dim 14 & 0.171 & 4.32 & 94.7 \\ \hline 
+dim 15 & 0.118 & 2.98 & 97.6 \\ \hline 
+dim 16 & 0.0932 & 2.36 & 100 \\ \hline 
+\end{tabular}
+	\caption{Les axes factoriels de la deuxième liste.}
+	\label{AxesListe32}
+\end{table}
+Le Tableau \ref{AxesListe32} montre les 16 axes factoriels de données. Dans ce qui suit, on utilisera principalement les deux premiers axes.
+
+\subsubsection{Résultats relatifs aux modalités}
+\begin{table}\centering
+\begin{tabular} {| l ||c |c |c |c |c |c |}  
+ \hline 
+   \  & Crd.Dim.1 & Crd.Dim.2 & Contrib.Dim.1 & Contrib.Dim.2 & Cos2.Dim.1 & Cos2.Dim.2 \\ \hline \hline 
+ta 1 & 2.65 & 1.05 & \textbf{24.1} & 5.18 & \textbf{0.501} & 0.0785 \\ \hline 
+ta 2 & 0.822 & -0.0107 & 2.76 & 0.000645 & 0.0584 & 9.91e-06 \\ \hline 
+ta 3 & 0.136 & -0.0386 & 0.0323 & 0.00356 & 0.00065 & 5.21e-05 \\ \hline 
+ta 4 & -0.17 & -0.0906 & 0.124 & 0.0481 & 0.00262 & 0.000743 \\ \hline 
+ta 5 & -0.184 & 0.786 & 0.122 & 3.05 & 0.00254 & 0.0465 \\ \hline 
+ta 6 & -0.328 & -0.0122 & 0.682 & 0.0013 & 0.0151 & 2.1e-05 \\ \hline 
+ta 7 & -0.315 & -0.319 & 0.471 & 0.663 & 0.0101 & 0.0103 \\ \hline 
+ta 8 & -0.329 & -0.185 & 2.54 & 1.1 & 0.0906 & 0.0286 \\ \hline 
+cr 1 & 2.62 & 0.466 & \textbf{32.5} & 1.41 & \textbf{0.694} & 0.022 \\ \hline 
+cr 2 & -0.265 & -0.0471 & 3.28 & 0.143 & \textbf{0.694} & 0.022 \\ \hline 
+re 1 & 0.186 & 0.476 & 0.403 & 3.63 & 0.0102 & 0.0669 \\ \hline 
+re 2 & 0.106 & -1.53 & 0.0936 & \textbf{26.5} & 0.00218 & \textbf{0.449} \\ \hline 
+re 3 & 2.38 & -0.394 & \textbf{20.4} & 0.768 & 0.43 & 0.0118 \\ \hline 
+re 4 & -0.291 & 1.1 & 0.593 & 11.6 & 0.0134 & 0.191 \\ \hline 
+re 5 & -0.438 & 0.382 & 2.5 & 2.61 & 0.0655 & 0.0497 \\ \hline 
+re 6 & -0.478 & -0.516 & 1.84 & 2.96 & 0.0426 & 0.0498 \\ \hline 
+sal 1 & -0.105 & 0.984 & 0.142 & \textbf{17.3} & 0.00381 & \textbf{0.338} \\ \hline 
+sal 2 & -0.44 & 0.406 & 2.23 & 2.61 & 0.0574 & 0.0489 \\ \hline 
+sal 3 & -0.155 & -0.259 & 0.31 & 1.19 & 0.00827 & 0.0231 \\ \hline 
+sal 4 & 0.59 & -0.99 & 4.97 & \textbf{19.2} & 0.138 & \textbf{0.387} \\ \hline 
+\end{tabular} 
+\caption{Les résultats relatifs aux modalités de la deuxième liste.}
+	\label{ResAuxModL32}
+\end{table}
+
+Les résultats relatifs aux modalités sont montrés au Tableau \ref{ResAuxModL32}. Les modalités contribuant les plus au premier axe sont $ta_1$ (taille d'entreprise), $cr_1$ (création d'entreprise), $re_3$ (responsabilité). Pour le deuxième axe, ce sont $re_2$ (responsabilité), $sal_1$, $sal_4$ (salaire brute) qui y contribuent les plus. Donc, on peut constater que les catégories se différenciant les plus parmi les modalités des variables \textsl{création d'entreprise} (sur le premier axe) et \textsl{salaire brute} (sur le deuxième axe).
+
+\subsubsection{Résultats graphiques}
+\begin{figure}[ht]\centering
+    \begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{varListe32.pdf}
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la deuxième liste.}
+  		\label{varListe32}
+  	\end{minipage}\hfill
+	\begin{minipage}[c]{.45\textwidth}\centering
+  		\includegraphics[width=\textwidth]{factorListe32.pdf}\\
+  		\caption{Positionnement des modalités sur deux axes factoriels pour la deuxième liste.}
+		\label{factorListe32}
+	\end{minipage}
+\end{figure}
+
+Le positionnement des variables sur les deux premiers axes est montré par la Figure \ref{varListe32}. On peut voir qu'il y a une forte corrélation entre \textsl{taille d'entreprise} et \textsl{création d'entreprise}. C'est raisonnable parce-que, normalement, la majorité ne peut pas créer grande entreprise, mais les entreprises privés et à petite échelle.
+
+Avec la même façon de la section \ref{sec:list31}, sur la Figure \ref{factorListe31}, on peut partitionner les modalités en des groupes typiques. En gros, le premier axe est caractérisé par l'opposition entre $cr_1$ (crée une entreprise) et $cr_2$ (n'avoir pas une entreprise). Le deuxième axe marque l'opposition entre $sal_1$ et $sal_4$ (salaire brute). On peut indiquer deux groupes principales, selon le premier axe:
+
+\begin{itemize}
+\item Le premier groupe contient $cr_1$ (crée une entreprise), $ta_1$ (mois de 10 salariés) et $re_{3}$ (Directeur Général). C'est assez raisonnable ici qu'on crée une petite entreprise privé et devient le directeur. Il se passe tous jours comme ça aujourd'hui.
+\item Le deuxième groupe contient $cr_2$ (n'avoir pas une entreprise ), $ta_{6,7,8}$ (grandes entreprises) et $sal_{2,3}$. Et c'est vrai! C'est normal que si on n'a pas une entreprise, on travaille dans une assez grande société, avec le salaire moyenne.
+\end{itemize}
+
+
 
 \section{Conclusions}
 
