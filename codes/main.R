@@ -3,57 +3,19 @@
 #Read data from file
 data = read.csv('25Promos2009.csv', head = TRUE, sep = ';', stringsAsFactors=FALSE, strip.white=TRUE);
 
-
-#convert from numeric to factor
+# parcours des étudiants
+library(FactoMineR);
+library(missMDA);
+library(sfsmisc);
 data$civilite = factor(data$civilite);
-data$diplome = factor(data$diplome);
-data$promo = factor(data$promo);
-data$admission = factor(data$admission);
 data$FormComp = factor(data$FormComp);
-data$DeaMsc = factor(data$DeaMsc);
-data$Doctorat = factor(data$Doctorat);
-data$DESSMBA = factor(data$DESSMBA);
-data$AutresForm = factor(data$AutresForm);
-data$LieuForm = factor(data$LieuForm);
-data$SitPro = factor(data$SitPro);
-data$RecchEmp = factor(data$RecchEmp);
-data$RecchAutre = factor(data$RecchAutre);
-data$NbExp = factor(data$NbExp);
-data$NbreEmp = factor(data$NbreEmp);
-data$AnnRef = factor(data$AnnRef);
+data$diplome = factor(data$diplome);
+data$rpomo <- as.numeric(data$promo);
+data$admission = factor(data$admission);
+data$FR.UE.HUE = factor(data$FR.UE.HUE);
 data$TypEntrep = factor(data$TypEntrep);
-data$CreaEnt = factor(data$CreaEnt);
-data$Dirigeant = factor(data$Dirigeant);
-data$EntIndep = factor(data$EntIndep);
-data$TailEntrp = factor(data$TailEntrp);
-
-
-
-
-#list of interesting variables
-data$civilite								# man or women
-#data$nationalite1							# nationality
-#data$promo									# year of study
-data$Activité.principale.employeur			#
-data$DomAct									# professional domain
-data$SalBrut								# net salary
-
-# some qualitative variables are considered as number by R automatically
-# this step is to convert from number back to factor
-data$civilite = factor(data$civilite);
-data$nationalite1 = factor(data$nationalite1);
-data$promo = factor(data$promo);
-data$Activité.principale.employeur = factor(data$Activité.principale.employeur);
-data$DomAct = factor(data$DomAct);
-
-# because data$SalBrut is characters, we need to preprocess a little to convert it form characters to number
-data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE))
-# draw distribution of net salary
-# we can base on this distribution to decide the intervals (when converting from numeric to factor)
-hist(data$SalBrut[data$SalBrut < 400000], nclass = 100)
-
+data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE));
 # convert from numeric to factor
-#..............
 nValSal = 4;
 ValSal = quantile(data$SalBrut, probs = c(0.25, 0.50, 0.75), na.rm = TRUE);
 data$SalBrut2 = rep(nValSal, length(data$SalBrut));
@@ -64,48 +26,57 @@ for (i in 2:nValSal)
 }
 data$SalBrut2[is.na(data$SalBrut)] = NA;
 data$SalBrut2 = factor(data$SalBrut2);
+# convert promo into nValPro groups
+nValPro <- 4;
+ValPro <- quantile(data$promo, probs = c(0.25, 0.50, 0.75), na.rm = TRUE);
+data$promo2 = rep(nValPro, length(data$promo));
+data$promo2[data$promo < ValPro[1]] = 1;
+for (i in 2:nValPro)
+{
+	data$promo2[data$promo < ValPro[i] & data$promo > ValPro[i-1]] = i;
+}
+data$promo2[is.na(data$promo)] = NA;
+data$promo2 = factor(data$promo2);
 
-# create new data frame containing interesting variables
-data1 = data.frame(data$civilite, data$Activité.principale.employeur, data$DomAct);
+data_list <- data.frame(data$civilite, data$FormComp, data$diplome, data$promo2, data$admission, data$FR.UE.HUE, data$TypEntrep, data$SalBrut2);
 
-#MCAda
-library(FactoMineR);
-result_MCA <- MCA(data1);
+data_list1 <- data.frame(data$diplome, data$admission, data$FR.UE.HUE, data$SalBrut2);
+colnames(data_list1)[1] <- "dip";
+colnames(data_list1)[2] <- "ad";
+colnames(data_list1)[3] <- "ori";
+colnames(data_list1)[4] <- "sal";
 
-# interesting variables: diplome, admission, FR.UE.HUE, TailEntrp
-data$civilite = factor(data$civilite);
-data$diplome = factor(data$diplome);
-data$promo = factor(data$promo);
-data$admission = factor(data$admission);
-data$FR.UE.HUE = factor(data$FR.UE.HUE);
-data$TypEntrep = factor(data$TypEntrep);
-data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE));
+tab.disj.comp <- imputeMCA(data_list1,ncp=2);
+result_list1 <- MCA(data_list1, ncp = 5, graph = TRUE, tab.disj=tab.disj.comp);
 
-data_list1 = data.frame(data$diplome, data$admission, data$FR.UE.HUE, data$TypEntrep, data$promo, data$SalBrut);
-
-result_list1 <- MCA(data_list1, ncp = 5, quanti.sup = 6, quali.sup = 5, graph = TRUE);
-plot(result_list1, choix=c("ind", "quanti.sup"), invisible = "ind", habillage = "quali");
+plot(result_list1, choix="ind", invisible = c("var"), habillage = "quali");
+plot(result_list1, choix="ind", invisible = c("ind"), habillage = "quali");
+plot(result_list1, choix="ind", invisible = c("ind"), habillage = "quali", xlim = c(-1.4, 0.537), ylim = c(-0.805, 4.15));
 dimdesc(result_list1);
-print(result_list1, sep = ";");
-# valeurs propres
-result_MCA2$eig;
-result_MCA2$var;
+tab1 <- result_list1$eig;
+mat2tex(tab1, append = FALSE);
+tab2 <- data.frame(result_list1$var$coord[, c(1:2)], result_list1$var$contrib[, c(1:2)], result_list1$var$cos2[, c(1:2)]);
+mat2tex(tab2, append = FALSE);
 
-# parcours des étudiants
-data$civilite = factor(data$civilite);
-data$FormComp = factor(data$FormComp);
-data$diplome = factor(data$diplome);
-data$promo = factor(data$promo);
-data$admission = factor(data$admission);
-data$FR.UE.HUE = factor(data$FR.UE.HUE);
-data$TypEntrep = factor(data$TypEntrep);
-data$SalBrut = as.numeric(gsub(" ","", data$SalBrut , fixed=TRUE));
+data_list2 <- data.frame(data$admission, data$TypEntrep, data$SalBrut2, data$promo2);
+colnames(data_list2)[1] <- "ad";
+colnames(data_list2)[2] <- "tep";
+colnames(data_list2)[3] <- "sal";
+colnames(data_list2)[4] <- "pro";
 
-data_list1 = data.frame(data$civilite, data$FormComp, data$diplome, data$admission, data$FR.UE.HUE, data$TypEntrep, data$promo, data$SalBrut);
+tab.disj.comp <- imputeMCA(data_list2,ncp=2)
+result_list2 <- MCA(data_list2, ncp = 5, graph = TRUE, tab.disj=tab.disj.comp);
 
-result_list1 <- MCA(data_list1, ncp = 5, quanti.sup = 8, quali.sup = 7, graph = TRUE);
-plot(result_list1, choix="ind", invisible = c("ind", "quali.sup"), habillage = "quali");
-dimdesc(result_list1);
+tab1 <- result_list2$eig;
+mat2tex(tab1, append = FALSE);
+tab2 <- data.frame(result_list2$var$coord[, c(1:2)], result_list2$var$contrib[, c(1:2)], result_list2$var$cos2[, c(1:2)]);
+mat2tex(tab2, append = FALSE);
+
+plot(result_list2, choix="ind", invisible = c("var"), habillage = "quali");
+
+plot(result_list2, choix="ind", invisible = c("ind"), habillage = "quali", xlim = c(-2.24, 1.62), ylim = c(-0.862, 2.19));
+dimdesc(result_list2);
+
 print(result_list1, sep = ";");
 # valeurs propres
 result_MCA2$eig;
