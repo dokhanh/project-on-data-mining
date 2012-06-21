@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.5)  18 JUN 2012 19:39
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.6.5)  21 JUN 2012 17:49
 entering extended mode
 **report.tex
 (C:\Users\Khanh\workspace\coursDataMining\project\report\report.tex
@@ -449,29 +449,25 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 80.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 89.
+(Font)              <8> on input line 86.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 89.
+(Font)              <6> on input line 86.
+
+Overfull \hbox (32.0326pt too wide) in paragraph at lines 93--120
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<varListe1.jpeg, id=12, 674.52pt x 674.52pt>
-File: varListe1.jpeg Graphic file (type jpg)
- <use varListe1.jpeg>
-Package pdftex.def Info: varListe1.jpeg used on input line 163.
-(pdftex.def)             Requested size: 217.66211pt x 217.66226pt.
-
-<factorListe1.jpeg, id=13, 682.55pt x 682.55pt>
-File: factorListe1.jpeg Graphic file (type jpg)
- <use factorListe1.jpeg>
-Package pdftex.def Info: factorListe1.jpeg used on input line 168.
-(pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
-
-<factorFrL1.jpeg, id=14, 682.55pt x 682.55pt>
-File: factorFrL1.jpeg Graphic file (type jpg)
- <use factorFrL1.jpeg>
-Package pdftex.def Info: factorFrL1.jpeg used on input line 175.
-(pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
+<hist_salbrut.pdf, id=12, 505.89pt x 505.89pt>
+File: hist_salbrut.pdf Graphic file (type pdf)
+ <use hist_salbrut.pdf>
+Package pdftex.def Info: hist_salbrut.pdf used on input line 126.
+(pdftex.def)             Requested size: 338.58632pt x 338.58945pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -479,53 +475,112 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] [3] [4 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe1.j
-peg> <C:/Users/Khanh/workspace/coursDataMining/project/report/factorListe1.jpeg
->] [5] <varListe2.jpeg, id=29, 674.52pt x 674.52pt>
-File: varListe2.jpeg Graphic file (type jpg)
- <use varListe2.jpeg>
-Package pdftex.def Info: varListe2.jpeg used on input line 252.
+[2 <C:/Users/Khanh/workspace/coursDataMining/project/report/hist_salbrut.pdf>]
+<varListe1.jpeg, id=93, 674.52pt x 674.52pt>
+File: varListe1.jpeg Graphic file (type jpg)
+ <use varListe1.jpeg>
+Package pdftex.def Info: varListe1.jpeg used on input line 209.
 (pdftex.def)             Requested size: 217.66211pt x 217.66226pt.
 
-<factorListe2.jpeg, id=30, 682.55pt x 682.55pt>
-File: factorListe2.jpeg Graphic file (type jpg)
- <use factorListe2.jpeg>
-Package pdftex.def Info: factorListe2.jpeg used on input line 257.
+<factorListe1.jpeg, id=94, 682.55pt x 682.55pt>
+File: factorListe1.jpeg Graphic file (type jpg)
+ <use factorListe1.jpeg>
+Package pdftex.def Info: factorListe1.jpeg used on input line 214.
 (pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
 
-<factorFrL2.jpeg, id=31, 863.225pt x 682.55pt>
+[3] [4] <factorFrL1.jpeg, id=104, 682.55pt x 682.55pt>
+File: factorFrL1.jpeg Graphic file (type jpg)
+ <use factorFrL1.jpeg>
+Package pdftex.def Info: factorFrL1.jpeg used on input line 221.
+(pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
+
+[5 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe1.jpeg> <C:
+/Users/Khanh/workspace/coursDataMining/project/report/factorListe1.jpeg> <C:/Us
+ers/Khanh/workspace/coursDataMining/project/report/factorFrL1.jpeg>] [6]
+<varListe2.jpeg, id=111, 674.52pt x 674.52pt>
+File: varListe2.jpeg Graphic file (type jpg)
+ <use varListe2.jpeg>
+Package pdftex.def Info: varListe2.jpeg used on input line 298.
+(pdftex.def)             Requested size: 217.66211pt x 217.66226pt.
+
+<factorListe2.jpeg, id=112, 682.55pt x 682.55pt>
+File: factorListe2.jpeg Graphic file (type jpg)
+ <use factorListe2.jpeg>
+Package pdftex.def Info: factorListe2.jpeg used on input line 303.
+(pdftex.def)             Requested size: 217.66211pt x 217.66017pt.
+
+<factorFrL2.jpeg, id=113, 863.225pt x 682.55pt>
 File: factorFrL2.jpeg Graphic file (type jpg)
  <use factorFrL2.jpeg>
-Package pdftex.def Info: factorFrL2.jpeg used on input line 264.
+Package pdftex.def Info: factorFrL2.jpeg used on input line 310.
 (pdftex.def)             Requested size: 217.66211pt x 172.10558pt.
- [6 <C:/Users/Khanh/workspace/coursDataMining/project/report/factorFrL1.jpeg> <
-C:/Users/Khanh/workspace/coursDataMining/project/report/varListe2.jpeg> <C:/Use
-rs/Khanh/workspace/coursDataMining/project/report/factorListe2.jpeg>] [7 <C:/Us
-ers/Khanh/workspace/coursDataMining/project/report/factorFrL2.jpeg>]
-(C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux)
+ [7]
+Overfull \hbox (8.40321pt too wide) in paragraph at lines 321--321
+[]\T1/lmr/bx/n/17.28 L'analyse sur ac-ti-vi-tés pro-fes-sion-nelles, en-tre-pri
+ses, res-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe2.jpeg> <C
+:/Users/Khanh/workspace/coursDataMining/project/report/factorListe2.jpeg> <C:/U
+sers/Khanh/workspace/coursDataMining/project/report/factorFrL2.jpeg>]
+<varListe31.pdf, id=121, 505.89pt x 505.89pt>
+File: varListe31.pdf Graphic file (type pdf)
+ <use varListe31.pdf>
+Package pdftex.def Info: varListe31.pdf used on input line 422.
+(pdftex.def)             Requested size: 217.66211pt x 217.66739pt.
+
+<factorListe31.pdf, id=122, 505.89pt x 505.89pt>
+File: factorListe31.pdf Graphic file (type pdf)
+ <use factorListe31.pdf>
+Package pdftex.def Info: factorListe31.pdf used on input line 427.
+(pdftex.def)             Requested size: 217.66211pt x 217.66739pt.
+
+[9 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe31.pdf> <C:
+/Users/Khanh/workspace/coursDataMining/project/report/factorListe31.pdf>]
+[10] [11] <varListe32.pdf, id=427, 505.89pt x 505.89pt>
+File: varListe32.pdf Graphic file (type pdf)
+ <use varListe32.pdf>
+Package pdftex.def Info: varListe32.pdf used on input line 509.
+(pdftex.def)             Requested size: 217.66211pt x 217.66739pt.
+
+<factorListe32.pdf, id=428, 505.89pt x 505.89pt>
+File: factorListe32.pdf Graphic file (type pdf)
+ <use factorListe32.pdf>
+Package pdftex.def Info: factorListe32.pdf used on input line 514.
+(pdftex.def)             Requested size: 217.66211pt x 217.66739pt.
+
+[12] [13] [14 <C:/Users/Khanh/workspace/coursDataMining/project/report/varListe
+32.pdf> <C:/Users/Khanh/workspace/coursDataMining/project/report/factorListe32.
+pdf>] [15] (C:\Users\Khanh\workspace\coursDataMining\project\report\report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4585 strings out of 494053
- 60938 string characters out of 3148604
- 142726 words of memory out of 3000000
- 7747 multiletter control sequences out of 15000+200000
+ 4622 strings out of 494053
+ 61583 string characters out of 3148604
+ 153824 words of memory out of 3000000
+ 7779 multiletter control sequences out of 15000+200000
  64182 words of font info for 63 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 28i,10n,43p,1517b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb>
-Output written on report.pdf (7 pages, 622645 bytes).
+ 28i,10n,43p,1600b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec
+.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
+0.pfb>
+Output written on report.pdf (15 pages, 1606224 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 713 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
