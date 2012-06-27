@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Analyse sur parcours, origines, entreprises et salaires}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Liste 1}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Liste 2}{5}{0}{2}
+\beamer@sectionintoc {3}{Analyse sur activit\'es professionnelles, entreprises, responsabilit\'es et salaires}{5}{0}{3}
+\beamer@subsectionintoc {3}{1}{Liste 1}{6}{0}{3}
+\beamer@subsectionintoc {3}{2}{Liste 2}{6}{0}{3}
+\beamer@sectionintoc {4}{Conclusions}{6}{0}{4}
